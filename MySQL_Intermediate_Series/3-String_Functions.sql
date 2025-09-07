@@ -52,3 +52,15 @@ SELECT birth_date,
 SUBSTRING(birth_date, 6, 2) AS birth_month
 FROM employee_demographics
 ;
+
+-- Replace
+
+SELECT first_name, REPLACE(first_name, 'e', 'z')
+FROM employee_demographics
+;
+
+-- Locate
+
+SELECT first_name, LOCATE('nn', first_name)
+FROM employee_demographics
+;
