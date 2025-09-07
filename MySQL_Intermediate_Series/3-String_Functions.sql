@@ -64,3 +64,10 @@ FROM employee_demographics
 SELECT first_name, LOCATE('nn', first_name)
 FROM employee_demographics
 ;
+
+
+-- Concatenation
+
+SELECT first_name, last_name, CONCAT(first_name, ' ', last_name)
+FROM employee_demographics
+;
