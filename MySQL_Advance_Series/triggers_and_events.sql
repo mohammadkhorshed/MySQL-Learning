@@ -1,5 +1,8 @@
 -- Triggers and Events
 
+
+-- Triggers
+
 DROP TRIGGER IF EXISTS employee_insert;
 DELIMITER $$
 CREATE TRIGGER employee_insert
@@ -16,6 +19,23 @@ VALUES (13, 'Chandler', 'Bing', 'CEO', 500000, NULL);
 
 SELECT *
 FROM employee_salary;
+
+SELECT *
+FROM employee_demographics;
+
+
+-- Events
+
+DELIMITER $$
+CREATE EVENT delete_retirees
+ON SCHEDULE EVERY 30 SECOND
+DO
+BEGIN
+	DELETE
+    FROM employee_demographics
+    WHERE age >= 60;
+END $$
+DELIMITER ;
 
 SELECT *
 FROM employee_demographics;
