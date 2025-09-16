@@ -28,6 +28,17 @@ BEGIN
 END $$
 DELIMITER ;
 
-CALL large_salaries3()
+CALL large_salaries3();
+
+DROP PROCEDURE IF EXISTS `get_salary`;
+CREATE PROCEDURE get_salary(p_employee_id INT)
+SELECT salary
+FROM employee_salary
+WHERE employee_id = p_employee_id
+;
+
+CALL get_salary(1);
+
+
 
 	
